@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer Registration - BeFarm</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Same navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon">🌾</span>
+                <span class="logo-text">BeFarm</span>
+            </a>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" title="Toggle Dark/Light Mode">
+                    <span id="themeIcon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!--REGISTRATION SECTION -->
+    <section class="register-section">
+        <div class="register-container">
+            <div class="register-header">
+                <h2>🌾 किसान पंजीकरण / Farmer Registration</h2>
+                <p>Complete these 3 simple steps to create your BeFarm account</p>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-step active" id="progress-1">
+                    <div class="step-circle">1</div>
+                    <span class="step-label">Details</span>
+                </div>
+                <div class="progress-line" id="line-1"></div>
+                <div class="progress-step" id="progress-2">
+                    <div class="step-circle">2</div>
+                    <span class="step-label">Location</span>
+                </div>
+                <div class="progress-line" id="line-2"></div>
+                <div class="progress-step" id="progress-3">
+                    <div class="step-circle">3</div>
+                    <span class="step-label">Farming</span>
+                </div>
+            </div>
+            <form id="registration-form">
+
+                <!-- STEP 1: FARMER DETAILS -->
+                <div class="form-step active" id="step-1">
+
+                    <h3 class="step-title">Personal Information</h3>
+                    <p class="step-description">
+                        Fields marked with <span class="required-star">*</span> are mandatory
+                    </p>
+
+                    <!-- FULL NAME (Mandatory) -->
+                    <div class="input-group">
+                        <label for="reg-name">
+                            Full Name <span class="required-star">*</span>
+                        </label>
+                        <div class="input-with-icon">
+                            <span class="input-icon">👤</span>
+                            <input
+                                type="text"
+                                id="reg-name"
+                                placeholder="Enter your full name"
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <!-- MOBILE NUMBER (Mandatory) + OTP -->
+                    <div class="input-group">
+                        <label for="reg-phone">
+                            Mobile Number <span class="required-star">*</span>
+                        </label>
+                        <div class="input-with-icon">
+                            <span class="input-icon">📱</span>
+                            <input
+                                type="tel"
+                                id="reg-phone"
+                                placeholder="Enter 10-digit mobile number"
+                                maxlength="10"
+                                required
+                            >
+                        </div>
+                        <div class="otp-row">
+                            <div class="input-with-icon otp-input-wrap">
+                                <span class="input-icon">🔐</span>
+                                <input
+                                    type="text"
+                                    id="reg-otp"
+                                    placeholder="Enter OTP"
+                                    maxlength="6"
+                                >
+                            </div>
+                            <button type="button" class="otp-btn" id="reg-otp-btn">
+                                Send OTP
+                            </button>
+                        </div>
+                        <small class="field-hint">
+                            We'll send a 6-digit OTP to verify your number
+                        </small>
+                    </div>
+
+                    <!-- ALTERNATE MOBILE (Optional) -->
+                    <div class="input-group">
+                        <label for="reg-alt-phone">
+                            Alternate Mobile Number
+                            <span class="optional-tag">(Optional)</span>
+                        </label>
+                        <div class="input-with-icon">
+                            <span class="input-icon">📞</span>
+                            <input
+                                type="tel"
+                                id="reg-alt-phone"
+                                placeholder="Alternate number (not verified)"
+                                maxlength="10"
+                            >
+                        </div>
+                    </div>
+
+                    <!-- PREFERRED LANGUAGE (Mandatory) -->
+                    <div class="input-group">
+                        <label for="reg-language">
+                            Preferred Language <span class="required-star">*</span>
+                        </label>
+                        <div class="input-with-icon">
+                            <span class="input-icon">🌐</span>
+                            <select id="reg-language" required>
+                                <option value="">-- Select Language --</option>
+                                <option value="hi">हिंदी (Hindi)</option>
+                                <option value="en">English</option>
+                                <option value="mr">मराठी (Marathi)</option>
+                                <option value="ta">தமிழ் (Tamil)</option>
+                                <option value="te">తెలుగు (Telugu)</option>
+                                <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
+                                <option value="gu">ગુજરાતી (Gujarati)</option>
+                                <option value="bn">বাংলা (Bengali)</option>
+                            </select>
+                        </div>
+                        <small class="field-hint">
+                            All notifications and app content will be in this language
+                        </small>
+                    </div>
+
+                    <!-- GENDER (Optional) -->
+                    <div class="input-group">
+                        <label>
+                            Gender
+                            <span class="optional-tag">(Optional)</span>
+                        </label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="male">
+                                <span class="radio-custom"></span>
+                                Male
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="female">
+                                <span class="radio-custom"></span>
+                                Female
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="other">
+                                <span class="radio-custom"></span>
+                                Other
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- DATE OF BIRTH (Optional) -->
+                    <div class="input-group">
+                        <label for="reg-dob">
+                            Date of Birth
+                            <span class="optional-tag">(Optional)</span>
+                        </label>
+                        <div class="input-with-icon">
+                            <span class="input-icon">📅</span>
+                            <input
+                                type="date"
+                                id="reg-dob"
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Step 1 Navigation Buttons -->
+                    <div class="step-buttons">
+                        <div></div>
+                        <button type="button" class="btn btn-primary" onclick="nextStep(2)">
+                            Continue →
+                        </button>
+                    </div>
+                </div>
+
+
+                <!-- STEP 2: LOCATION -->
+                <div class="form-step" id="step-2">
+
+                    <h3 class="step-title">Your Location</h3>
+                    <p class="step-description">
+                        This helps us find your nearest mandi and procurement centre
+                    </p>
+
+                    <!-- STATE (Mandatory) -->
+                    <div class="input-group">
+                        <label for="reg-state">
+                            State <span class="required-star">*</span>
+                        </label>
+                        <div class="input-with-icon">
+                            <span class="input-icon">📍</span>
+                            <select id="reg-state" required onchange="updateDistricts()">
+                                <option value="">-- Select State --</option>
+                                <option value="up">Uttar Pradesh</option>
+                                <option value="mp">Madhya Pradesh</option>
+                                <option value="mh">Maharashtra</option>
+                                <option value="pb">Punjab</option>
+                                <option value="hr">Haryana</option>
+                                <option value="rj">Rajasthan</option>
+                                <option value="dl">Delhi</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- DISTRICT (Mandatory) -->
+                    <div class="input-group">
+                        <label for="reg-district">
+                            District <span class="required-star">*</span>
+                        </label>
+                        <div class="input-with-icon">
+                            <span class="input-icon">🏛️</span>
+                            <select id="reg-district" required onchange="updateTehsils()">
+                                <option value="">-- Select District --</option>
+                            </select>
+                        </div>
+                        <small class="field-hint">
+                            Select your state first
+                        </small>
+                    </div>
+
+                    <!-- TEHSIL / BLOCK (Mandatory) -->
+                    <div class="input-group">
+                        <label for="reg-tehsil">
+                            Block / Tehsil <span class="required-star">*</span>
+                        </label>
+                        <div class="input-with-icon">
+                            <span class="input-icon">🏘️</span>
+                            <select id="reg-tehsil" required>
+                                <option value="">-- Select Block/Tehsil --</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- RURAL / URBAN (Mandatory) -->
+                    <div class="input-group">
+                        <label>
+                            Area Type <span class="required-star">*</span>
+                        </label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input
+                                    type="radio"
+                                    name="area-type"
+                                    value="rural"
+                                    onchange="toggleVillage()"
+                                    required
+                                >
+                                <span class="radio-custom"></span>
+                                🏡 Rural (गाँव)
+                            </label>
+                            <label class="radio-label">
+                                <input
+                                    type="radio"
+                                    name="area-type"
+                                    value="urban"
+                                    onchange="toggleVillage()"
+                                >
+                                <span class="radio-custom"></span>
+                                🏙️ Urban (शहर)
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- VILLAGE (Conditional - only for Rural) -->
+                    <div class="input-group" id="village-group" style="display: none;">
+                        <label for="reg-village">
+                            Village <span class="required-star">*</span>
+                        </label>
+                        <div class="input-with-icon">
+                            <span class="input-icon">🌾</span>
+                            <select id="reg-village">
+                                <option value="">-- Select Village --</option>
+                            </select>
+                        </div>
+                        <small class="field-hint">
+                            Select your tehsil first to see villages
+                        </small>
+                    </div>
+
+                    <!-- PIN CODE (Mandatory) -->
+                    <div class="input-group">
+                        <label for="reg-pincode">
+                            PIN Code <span class="required-star">*</span>
+                        </label>
+                        <div class="input-with-icon">
+                            <span class="input-icon">📮</span>
+                            <input
+                                type="text"
+                                id="reg-pincode"
+                                placeholder="Enter 6-digit PIN code"
+                                maxlength="6"
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Step 2 Navigation Buttons -->
+                    <div class="step-buttons">
+                        <button type="button" class="btn btn-outline" onclick="prevStep(1)">
+                            ← Back
+                        </button>
+                        <button type="button" class="btn btn-primary" onclick="nextStep(3)">
+                            Continue →
+                        </button>
+                    </div>
+                </div>
+
+
+                <!-- STEP 3: FARMING PROFILE -->
+                <div class="form-step" id="step-3">
+
+                    <h3 class="step-title">Farming Profile</h3>
+                    <p class="step-description">
+                        Tell us about your farm so we can help you better
+                    </p>
+
+                    <!-- LAND OWNERSHIP STATUS (Mandatory) -->
+                    <div class="input-group">
+                        <label>
+                            Land Ownership <span class="required-star">*</span>
+                        </label>
+                        <div class="radio-group radio-vertical">
+                            <label class="radio-label">
+                                <input type="radio" name="land-status" value="owned" required>
+                                <span class="radio-custom"></span>
+                                Owned (अपनी ज़मीन)
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="land-status" value="leased">
+                                <span class="radio-custom"></span>
+                                Leased (किराये पर)
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="land-status" value="sharecropping">
+                                <span class="radio-custom"></span>
+                                Sharecropping (बटाई)
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="land-status" value="other">
+                                <span class="radio-custom"></span>
+                                Other
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- CULTIVATED AREA (Optional but useful) -->
+                    <div class="input-group">
+                        <label for="reg-area">
+                            Cultivated Land Area
+                            <span class="optional-tag">(Optional)</span>
+                        </label>
+                        <div class="area-input-row">
+                            <div class="input-with-icon area-number">
+                                <input
+                                    type="number"
+                                    id="reg-area"
+                                    placeholder="e.g. 5"
+                                    min="0"
+                                    step="0.1"
+                                >
+                            </div>
+                            <div class="input-with-icon area-unit">
+                                <select id="reg-area-unit">
+                                    <option value="acre">Acre</option>
+                                    <option value="hectare">Hectare</option>
+                                    <option value="bigha">Bigha</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MAIN CROPS (Checkboxes - Multiple Selection) -->
+                    <div class="input-group">
+                        <label>
+                            Main Crops
+                            <span class="optional-tag">(Select all that apply)</span>
+                        </label>
+                        <div class="checkbox-grid">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="crops" value="wheat">
+                                <span class="checkbox-custom"></span>
+                                🌾 Wheat (गेहूँ)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="crops" value="rice">
+                                <span class="checkbox-custom"></span>
+                                🍚 Rice (चावल)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="crops" value="mustard">
+                                <span class="checkbox-custom"></span>
+                                🌻 Mustard (सरसों)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="crops" value="cotton">
+                                <span class="checkbox-custom"></span>
+                                🏵️ Cotton (कपास)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="crops" value="sugarcane">
+                                <span class="checkbox-custom"></span>
+                                🎋 Sugarcane (गन्ना)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="crops" value="bajra">
+                                <span class="checkbox-custom"></span>
+                                🌿 Bajra (बाजरा)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="crops" value="maize">
+                                <span class="checkbox-custom"></span>
+                                🌽 Maize (मक्का)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="crops" value="soybean">
+                                <span class="checkbox-custom"></span>
+                                🫘 Soybean (सोयाबीन)
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- PREFERRED MANDI (Optional) -->
+                    <div class="input-group">
+                        <label for="reg-mandi">
+                            Preferred Mandi
+                            <span class="optional-tag">(Optional)</span>
+                        </label>
+                        <div class="input-with-icon">
+                            <span class="input-icon">🏪</span>
+                            <select id="reg-mandi">
+                                <option value="">-- Select or we'll suggest nearest --</option>
+                                <option value="auto">📍 Find Nearest Automatically</option>
+                                <option value="mandi-1">Azadpur Mandi, Delhi</option>
+                                <option value="mandi-2">Vashi Mandi, Mumbai</option>
+                                <option value="mandi-3">Khanna Mandi, Punjab</option>
+                                <option value="mandi-4">Neemuch Mandi, MP</option>
+                            </select>
+                        </div>
+                        <small class="field-hint">
+                            Don't know your mandi? Select "Find Nearest" — we'll help!
+                        </small>
+                    </div>
+
+                    <!-- COMMUNICATION PREFERENCES -->
+                    <div class="input-group">
+                        <label>
+                            How should we contact you?
+                            <span class="optional-tag">(Select all)</span>
+                        </label>
+                        <div class="checkbox-grid">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="comm" value="sms" checked>
+                                <span class="checkbox-custom"></span>
+                                💬 SMS
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="comm" value="voice" checked>
+                                <span class="checkbox-custom"></span>
+                                📞 Voice Call / IVR
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="comm" value="whatsapp">
+                                <span class="checkbox-custom"></span>
+                                📱 WhatsApp
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="comm" value="app">
+                                <span class="checkbox-custom"></span>
+                                🔔 App Notification
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 Navigation Buttons -->
+                    <div class="step-buttons">
+                        <button type="button" class="btn btn-outline" onclick="prevStep(2)">
+                            ← Back
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            ✅ Complete Registration
+                        </button>
+                    </div>
+                </div>
+
+
+                <!-- SUCCESS SCREEN -->
+                <div class="form-step" id="step-success">
+
+                    <div class="success-content">
+                        <div class="success-icon">🎉</div>
+                        <h3>Registration Successful!</h3>
+                        <p>
+                            Welcome to BeFarm! Your account has been created.
+                        </p>
+
+                        <div class="farmer-id-card">
+                            <p class="id-label">Your Farmer ID</p>
+                            <p class="id-number" id="generated-farmer-id">
+                                FMR-2026-000001
+                            </p>
+                            <small>
+                                Save this ID. You'll need it for mandi visits.
+                            </small>
+                        </div>
+
+                        <div class="success-actions">
+                            <a href="login.html" class="btn btn-primary btn-large">
+                                Go to Login →
+                            </a>
+                            <a href="index.html" class="btn btn-outline btn-large">
+                                Back to Home
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
