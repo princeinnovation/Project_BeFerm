@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - BeFarm</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon">🌾</span>
+                <span class="logo-text">BeFarm</span>
+            </a>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" title="Toggle Dark/Light Mode">
+                    <span id="themeIcon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="login-section">
+        <div class="login-container">
+
+            <div class="login-left">
+                <h2>Welcome to BeFarm</h2>
+                <p>Access your personalized dashboard</p>
+                <div class="login-benefits">
+                    <div class="benefit-item">
+                        <span>✅</span>
+                        <p>Book mandi slots in advance</p>
+                    </div>
+                    <div class="benefit-item">
+                        <span>✅</span>
+                        <p>Track crop quality reports</p>
+                    </div>
+                    <div class="benefit-item">
+                        <span>✅</span>
+                        <p>Monitor DBT payment status</p>
+                    </div>
+                    <div class="benefit-item">
+                        <span>✅</span>
+                        <p>Get weather alerts for your area</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="login-right">
+                <div class="login-tabs">
+                    <button class="tab-btn active" data-tab="farmer">
+                        🧑‍🌾 Farmer
+                    </button>
+                    <button class="tab-btn" data-tab="admin">
+                        🔑 Admin
+                    </button>
+                </div>
+
+                <!-- FARMER LOGIN FORM -->
+                <form class="login-form active" id="farmer-form">
+                    <h3>Farmer Login</h3>
+                    <p class="form-subtitle">
+                        Use your registered mobile number
+                    </p>
+
+                    <div class="input-group">
+                        <label for="farmer-phone">Mobile Number</label>
+                        <div class="input-with-icon">
+                            <span class="input-icon">📱</span>
+                            <input
+                                type="tel"
+                                id="farmer-phone"
+                                placeholder="Enter 10-digit mobile number"
+                                maxlength="10"
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="farmer-otp">OTP Verification</label>
+                        <div class="input-with-icon">
+                            <span class="input-icon">🔐</span>
+                            <input
+                                type="text"
+                                id="farmer-otp"
+                                placeholder="Enter 6-digit OTP"
+                                maxlength="6"
+                            >
+                        </div>
+                        <button type="button" class="otp-btn">Send OTP</button>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-full">
+                        Login as Farmer
+                    </button>
+
+                    <p class="form-footer">
+                        Don't have an account?
+                        <a href="register.html" class="form-link">Register Now</a>
+                    </p>
+                </form>
+
+                <!-- ADMIN LOGIN FORM -->
+                <form class="login-form" id="admin-form">
+                    <h3>Admin Login</h3>
+                    <p class="form-subtitle">
+                        Government / Mandi Board officials only
+                    </p>
+
+                    <div class="input-group">
+                        <label for="admin-id">Admin ID</label>
+                        <div class="input-with-icon">
+                            <span class="input-icon">🪪</span>
+                            <input
+                                type="text"
+                                id="admin-id"
+                                placeholder="Enter your Admin ID"
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="admin-password">Password</label>
+                        <div class="input-with-icon">
+                            <span class="input-icon">🔒</span>
+                            <input
+                                type="password"
+                                id="admin-password"
+                                placeholder="Enter your password"
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-full">
+                        Login as Admin
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
